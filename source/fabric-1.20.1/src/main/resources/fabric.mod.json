@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "nekorocoins",
+  "version": "${version}",
+  "name": "Nekoro Coins",
+  "description": "Adds 120 coins with no crafting or mechanics, for use as currency, quest icons or shop items in other mods.",
+  "authors": ["Alolan Xardas"],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/nekoro-c"
+  },
+  "license": "MIT",
+  "icon": "assets/nekorocoins/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.xardas.nekorocoins.NekoroCoins"]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

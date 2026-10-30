@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = mod_version
+group = 'dev.xardas'
+base.archivesName = 'nekorocoins'
+
+// Gradle and ForgeGradle run on JDK 21, but 1.20.1 needs Java 17 bytecode
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+    options.encoding = 'UTF-8'
+}
+
+sourceSets.main {
+    java.srcDir '../common/java-forge'
+    resources.srcDir '../common/resources'
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+
+    runs {
+        server {
+            workingDirectory project.file('run')
+            args '--nogui'
+            mods {
+                nekorocoins { source sourceSets.main }
+            }
+        }
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+}
+
+processResources {
+    inputs.property 'version', version
+    filesMatching('META-INF/mods.toml') {
+        expand version: version
+    }
+}
+
+jar {
+    archiveFileName = "Nekoro-C-${version}-Forge-${minecraft_version}.jar"
+    from('../../LICENSE')
+    manifest {
+        attributes([
+            'Specification-Title'   : 'nekorocoins',
+            'Specification-Vendor'  : 'Alolan Xardas',
+            'Specification-Version' : '1',
+            'Implementation-Title'  : 'Nekoro Coins',
+            'Implementation-Version': version,
+            'Implementation-Vendor' : 'Alolan Xardas'
+        ])
+    }
+    // 1.20.1 runs on SRG names, so the jar has to be remapped from Mojang names
+    finalizedBy 'reobfJar'
+}

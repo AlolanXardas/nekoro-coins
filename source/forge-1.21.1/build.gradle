@@ -13,7 +13,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 sourceSets.main {
-    java.srcDir '../common/java-forge'
+    java.srcDirs '../common/java-core', '../common/java-mixin', '../common/java-forge'
     resources.srcDir '../common/resources'
 }
 
@@ -52,7 +52,8 @@ jar {
             'Specification-Version' : '1',
             'Implementation-Title'  : 'Nekoro Coins',
             'Implementation-Version': version,
-            'Implementation-Vendor' : 'Alolan Xardas'
+            'Implementation-Vendor' : 'Alolan Xardas',
+            'MixinConfigs'          : 'nekorocoins.mixins.json'
         ])
     }
 }

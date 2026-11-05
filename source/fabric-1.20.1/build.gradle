@@ -15,7 +15,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 sourceSets.main {
-    java.srcDir '../common/java-fabric'
+    java.srcDirs '../common/java-core', '../common/java-mixin', '../common/java-fabric'
     resources.srcDir '../common/resources'
 }
 

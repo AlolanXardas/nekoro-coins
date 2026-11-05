@@ -13,6 +13,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 sourceSets.main {
+    java.srcDirs '../common/java-core', '../common/java-mixin'
     resources.srcDir '../common/resources'
 }
 

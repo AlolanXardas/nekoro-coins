@@ -11,7 +11,7 @@ license="MIT"
     logoFile="assets/nekorocoins/icon.png"
     logoBlur=false
     description='''
-        Adds 120 coins with no crafting or mechanics, for use as currency, quest icons or shop items in other mods.
+        Adds 120 coins for use as currency, quest icons or shop items in other mods. Their names, recipes and which of them are enabled are set in the config.
     '''
 
 [[dependencies.nekorocoins]]

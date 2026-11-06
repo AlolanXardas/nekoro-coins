@@ -3,6 +3,7 @@
 !/source/
 !/LICENSE
 !/README.md
+!/DESCRIPTION.html
 !/.gitignore
 # build output and caches
 build/
